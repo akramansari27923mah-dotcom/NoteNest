@@ -1,25 +1,24 @@
 import express from 'express';
 import notesController from '../controller/notes.controller.js'
-import checkToken from '../middleware/auth.middleware.js';
 
 const router = express.Router();
 
 
 // GET API FOR SEND DATA
-router.get('/', checkToken, notesController.getNotes)
+router.get('/',  notesController.getNotes)
 
 // THIS API GET DATA TO ESPACIFIC ID
-router.get('/:id',checkToken, notesController.getDataWithId)
+router.get('/:id', notesController.getDataWithId)
 
 // POST API FOR CREATE POST
-router.post('/',checkToken, notesController.createNotes)
+router.post('/', notesController.createNotes)
 
 
 // PUT API FOR UPDATE POST
-router.put('/:id',checkToken, notesController.updateNotes)
+router.put('/:id', notesController.updateNotes)
 
 
 // DELETE API FOR DELETE POST
-router.delete('/:id',checkToken, notesController.deleteNotes)
+router.delete('/:id', notesController.deleteNotes)
 
 export default router
