@@ -4,7 +4,7 @@ import noteModel from "../models/notes.model.js";
 const getNotes = async (req, res) => {
   try {
     const notes = await noteModel
-      .find({ userId: req.user.id })
+      .find()
       .sort({ createdAt: -1 });
 
     res.status(200).json({
@@ -22,7 +22,6 @@ const getDataWithId = async (req, res) => {
   try {
     const note = await noteModel.findOne({
       _id: req.params.id,
-      userId: req.user.id,
     });
 
     if (!note) {
@@ -44,7 +43,6 @@ const createNotes = async (req, res) => {
     const newNote = await noteModel.create({
       title,
       content,
-      userId: req.user.id,
     });
 
     res.status(201).json({
@@ -64,7 +62,7 @@ const updateNotes = async (req, res) => {
     const { title, content } = req.body;
 
     const updatedNote = await noteModel.findOneAndUpdate(
-      { _id: req.params.id, userId: req.user.id },
+      { _id: req.params.id, },
       { title, content },
       { new: true }
     );
@@ -85,7 +83,6 @@ const deleteNotes = async (req, res) => {
   try {
     const deletedNote = await noteModel.findOneAndDelete({
       _id: req.params.id,
-      userId: req.user.id,
     });
 
     if (!deletedNote) {
