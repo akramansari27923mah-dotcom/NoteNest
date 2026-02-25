@@ -3,8 +3,6 @@ import Home from "./pages/Home"
 import CreatePage from "./pages/CreatePage"
 import NotesDetails from "./pages/NotesDetails"
 import NotFound from './components/NotFound'
-import Login from "./pages/Login"
-import SingIn from "./pages/SingIn"
 
 const App = () => {
   return (
