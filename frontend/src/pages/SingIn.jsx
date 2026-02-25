@@ -1,7 +1,7 @@
 
 import { NavLink, useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast'
-import { axiosLogin } from '../lib/axios';
+import axiosInstance from '../lib/axios';
 
 const SingIn = () => {
     const navigate = useNavigate()
@@ -23,7 +23,7 @@ const SingIn = () => {
         }
 
         try {
-            const res = await axiosLogin.post('/auth/register', paylode)
+            const res = await axiosInstance.post('/auth/register', paylode)
 
             const sucess = res.data?.success;
 

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { axiosLogin } from '../lib/axios';
+import axiosInstance from '../lib/axios';
 import toast from 'react-hot-toast'
 import { NavLink, useNavigate } from 'react-router-dom';
 import { Loader } from 'lucide-react';
@@ -22,7 +22,7 @@ const Login = () => {
         }
         setLogIng(true)
         try {
-            const res = await axiosLogin.post('/auth/login', paylode)
+            const res = await axiosInstance('/auth/login', paylode)
 
             const sucess = res.data?.success;
 
