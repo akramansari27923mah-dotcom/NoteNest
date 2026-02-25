@@ -31,6 +31,8 @@ const getDataWithId = async (req, res) => {
 // CREATE NOTE
 const createNotes = async (req, res) => {
   try {
+    console.log('BODY', req.body);
+    
     const { title, content } = req.body;
 
     if (!title?.trim() || !content?.trim()) {
